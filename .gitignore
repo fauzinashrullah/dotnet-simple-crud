@@ -1,0 +1,41 @@
+## .NET build output
+bin/
+obj/
+out/
+
+## User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Rider / VS Code settings
+.idea/
+.vscode/
+*.code-workspace
+
+## Build results
+*.dll
+*.exe
+*.app
+*.log
+
+## OS files
+.DS_Store
+Thumbs.db
+
+## Dotnet watch
+**/appsettings.*.json
+
+## EF Core
+Migrations/
+
+## ASP.NET Identity / Secrets
+secrets.json
+
+## Test results
+TestResults/
+*.coverage
+*.coveragexml
+*.testsettings
+*.vsmdi
