@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using SimpleApi.Data;
+using SimpleApi.Models;
 
 namespace SimpleApi.Controllers;
 
