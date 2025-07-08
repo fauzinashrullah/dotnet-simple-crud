@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SimpleApi.Data;
@@ -30,6 +31,7 @@ public class ProductsController : ControllerBase
         return product == null ? NotFound() : Ok(product);
     }
 
+    [Authorize]
     [HttpPost]
     public async Task<IActionResult> Create(Product product)
     {
@@ -38,6 +40,7 @@ public class ProductsController : ControllerBase
         return CreatedAtAction(nameof(Get), new { id = product.Id }, product);
     }
 
+    [Authorize]
     [HttpPut("{id}")]
     public async Task<IActionResult> Update(int id, Product updated)
     {
@@ -49,6 +52,7 @@ public class ProductsController : ControllerBase
         return NoContent();
     }
 
+    [Authorize]
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {

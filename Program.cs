@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore;
 using SimpleApi.Data;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using SimpleApi.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Tambahkan DB Context
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
@@ -24,10 +24,15 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             )
         };
     });
+    
+builder.Services.AddScoped<JwtTokenGenerator>();
 
 builder.Services.AddControllers();
 
 var app = builder.Build();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllers();
 
